@@ -4,10 +4,11 @@ source /vagrant/project.cfg
 # python essentials
 apt-get install -y build-essential python-dev
 
-# pip
+# pip and virtualenv
 cd /vagrant/downloads
 python distribute_setup.py
 easy_install pip
+pip install virtualenv
 
 # adding phusion passenger repository
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7

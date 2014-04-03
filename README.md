@@ -4,6 +4,12 @@ A simple Vagrant setup to run a Django project during development. It uses
 Ubuntu server 12.04 (x86_64) and Phusion Passenger, with an Upstart script to
 run Passenger. It uses a simple script provisioner.
 
+The project will handle most basic Django installation needs, including
+installing virtualenv and configuring the wsgi server to work with your
+project. For the most part, you only need to handle writing the wsgi script to
+run your project and a `setup.sh` script for any additional setup needs you
+may have.
+
 ## Prerequisites
 
 Your Django project must have a `setup.sh` in the root of the project that runs
@@ -16,9 +22,9 @@ machine. The path to your project folder will be `/vagrant/django/<your project>
 so you may want to `cd` to the directory before starting or use absolute paths
 when running your script.
 
-Your project must also have a passenger_wsgi.py file to run your Django
+Your project must also have a `passenger_wsgi.py` file to run your Django
 project. See the 'Usage' section below for configuring `project.cfg` to point
-to your passenger_wsgi.py file.
+to your `passenger_wsgi.py` file.
 
 ## Usage
 
