@@ -27,9 +27,11 @@ initctl reload-configuration
 
 # setting up django
 cd /vagrant/django
-cp $PROJECT/passenger_wsgi.py .
 if [ -e $PROJECT/"setup.sh" ]; then
   ./$PROJECT/setup.sh
 fi
 
+# starting Passenger for the first time (should automatically start next time
+# the virtual machine is restarted)
+cd $WSGI_PATH
 passenger start --daemonize --user vagrant

@@ -16,10 +16,9 @@ machine. The path to your project folder will be `/vagrant/django/<your project>
 so you may want to `cd` to the directory before starting or use absolute paths
 when running your script.
 
-Your project must also have a passenger_wsgi.py file that can run from the `django`
-folder of VUPPUDJ (i.e., one level above where your project directory will
-sit -- the passenger_wsgi.py file gets copied outside of the project directory
-to mimic the setup that some web hosts use).
+Your project must also have a passenger_wsgi.py file to run your Django
+project. See the 'Usage' section below for configuring `project.cfg` to point
+to your passenger_wsgi.py file.
 
 ## Usage
 
@@ -40,6 +39,12 @@ Create a project.cfg file in root of vuppudj:
 Edit the `PROJECT` variable to match the project you copied into `django`:
 
     PROJECT='myprojname'  # change to your actual project folder name
+
+Set the absolute path on the VM to the folder where your passenger_wsgi.py file
+will be located.  Unless you have other configuration needs, this should be
+something like:
+
+    WSGI_PATH='/vagrant/django/myprojname'
 
 You may also want to edit the `HOST_PORT` variable if you are running multiple
 vagrant instances, but the default setting of 3000 should work without

@@ -2,6 +2,13 @@
 # folder
 PROJECT=''
 
+# The absolute path on the guest machine to the folder that hosts your
+# passenger_wsgi.py file.
+#
+# By default, your project lives in the /vagrant/django folder of the guest
+# machine unless you have copied it elsewhere during your setup.sh script.
+WSGI_PATH='/vagrant/django/myapp'
+
 # The port on your host machine that you want to use to view Django. For
 # example, using 3000 would let you view django at http://localhost:3000
 HOST_PORT=3000
