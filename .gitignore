@@ -1,5 +1,7 @@
+*.swp
 *.pyc
 *.log
 *.lock
 django/*
 .vagrant/*
+project.cfg

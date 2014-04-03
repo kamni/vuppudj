@@ -1,9 +1,10 @@
-# set this variable to your project name
-PROJECT='myapp'
+# bring in configured variables
+source /vagrant/project.cfg
 
+# python essentials
 apt-get install -y build-essential python-dev
 
-# install pip
+# pip
 cd /vagrant/downloads
 python distribute_setup.py
 easy_install pip
@@ -31,4 +32,4 @@ if [ -e $PROJECT/"setup.sh" ]; then
   ./$PROJECT/setup.sh
 fi
 
-passenger start &
+passenger start --daemonize --user vagrant

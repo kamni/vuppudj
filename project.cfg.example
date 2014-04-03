@@ -1,0 +1,7 @@
+# Name of your Django project. This should be the name
+# of the folder you created when you ran 
+# `django-admin.py startproject`
+PROJECT_NAME=
+
+# absolute path to the folder containing your Django project
+PROJECT_PARENT_DIRECTORY=
