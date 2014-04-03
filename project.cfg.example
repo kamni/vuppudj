@@ -1,7 +1,7 @@
-# Name of your Django project. This should be the name
-# of the folder you created when you ran 
-# `django-admin.py startproject`
-PROJECT_NAME=
+# Name of your Django project located in the 'django'
+# folder
+PROJECT=''
 
-# absolute path to the folder containing your Django project
-PROJECT_PARENT_DIRECTORY=
+# The port on your host machine that you want to use to view Django. For
+# example, using 3000 would let you view django at http://localhost:3000
+HOST_PORT=3000
