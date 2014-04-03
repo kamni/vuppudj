@@ -10,6 +10,11 @@ python distribute_setup.py
 easy_install pip
 pip install virtualenv
 
+# other tools
+apt-get install -y subversion
+apt-get install -y mercurial
+apt-get install -y git
+
 # adding phusion passenger repository
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
 apt-get install -y apt-transport-https ca-certificates
