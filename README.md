@@ -32,10 +32,10 @@ Clone this repository onto your development machine:
 
     git clone https://github.com/kamni/vuppudj.git
 
-Link or copy the Django project that you wish to run into the `django` folder
-of this project. For example, if you are on a *nix machine, you might do:
+Copy the Django project that you wish to run into the `django` folder
+of this project (or clone it from your repository):
 
-    ln -s /path-to-myproj/myprojname /path-to-vuppudj/myprojname
+    cp -r /path-to-myproj/myprojname /path-to-vuppudj/myprojname
 
 Create a project.cfg file in root of vuppudj:
 

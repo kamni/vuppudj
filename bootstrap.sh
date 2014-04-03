@@ -29,7 +29,7 @@ initctl reload-configuration
 # setting up django
 cd /vagrant/django
 if [ -e $PROJECT/"setup.sh" ]; then
-  ./$PROJECT/setup.sh
+  /bin/bash $PROJECT/setup.sh
 fi
 
 # starting Passenger for the first time (should automatically start next time
