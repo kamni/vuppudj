@@ -18,6 +18,8 @@ echo $SPACER"bootstrap: installing build-essential"
 apt-get install -y build-essential
 echo $SPACER"bootstrap: installing python-dev"
 apt-get install -y python-dev
+echo $SPACER"bootstrap: installing sqlite3"
+apt-get install -y sqlite3
 
 # pip and virtualenv
 echo $SPACER"bootstrap: installing distribute"
