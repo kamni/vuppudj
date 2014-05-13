@@ -5,21 +5,24 @@ echo $SPACER"bootstrap: importing project config"
 source /vagrant/project.cfg
 
 # adding phusion passenger repository
-echo $SPACER"bootstrap: adding Phusion repositories"
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
-apt-get install -y apt-transport-https ca-certificates
-cp /vagrant/config/etc/apt/sources.list.d/passenger.list /etc/apt/sources.list.d/
-chown root:root /etc/apt/sources.list.d/passenger.list
-chmod 600 /etc/apt/sources.list.d/passenger.list
+echo $SPACER"bootstrap: running apt-get update"
 apt-get update
 
-# python essentials
+# development essentials
 echo $SPACER"bootstrap: installing build-essential"
 apt-get install -y build-essential
 echo $SPACER"bootstrap: installing python-dev"
 apt-get install -y python-dev
 echo $SPACER"bootstrap: installing sqlite3"
 apt-get install -y sqlite3
+echo $SPACER"bootstrap: installing mysql"
+debconf-set-selections <<< 'mysql-server mysql-server/root_password password MYSQL_PASSWORD'
+debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MYSQL_PASSWORD'
+apt-get install -y mysql-server
+echo $SPACER"bootstrap: installing postgres"
+apt-get install -y postgresql
+echo $SPACER"bootstrap: installing vim"
+apt-get install -y vim
 
 # pip and virtualenv
 echo $SPACER"bootstrap: installing distribute"
@@ -37,28 +40,5 @@ echo $SPACER"bootstrap: installing mercurial"
 apt-get install -y mercurial
 echo $SPACER"bootstrap: installing git"
 apt-get install -y git
-
-# installing phusion
-echo $SPACER"bootstrap: installing Phusion Passenger"
-apt-get install -y passenger
-
-# installing upstart so this will run when we restart
-echo $SPACER"bootstrap: installing upstart"
-apt-get install -y upstart
-cp /vagrant/config/etc/init/passenger.conf /etc/init/
-initctl reload-configuration
-
-# setting up django
-echo $SPACER"bootstrap: setting up Django project"
-cd /vagrant/django
-if [ -e $PROJECT/"setup.sh" ]; then
-  /bin/bash $PROJECT/setup.sh
-fi
-
-# starting Passenger for the first time (should automatically start next time
-# the virtual machine is restarted)
-echo $SPACER"bootstrap: starting Passenger"
-cd $WSGI_PATH
-passenger start --daemonize --user vagrant
 
 echo $SPACER"bootstrap: setup complete"

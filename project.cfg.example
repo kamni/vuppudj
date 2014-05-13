@@ -9,6 +9,11 @@ PROJECT=''
 # machine unless you have copied it elsewhere during your setup.sh script.
 WSGI_PATH='/vagrant/django/myapp'
 
-# The port on your host machine that you want to use to view Django. For
-# example, using 3000 would let you view django at http://localhost:3000
-HOST_PORT=3000
+# The port on your guest and host machine that you want to use to view Django. 
+# For example, specifying 8000 (Django's default port) for the guest and 3000 
+# for the host would let you view django at http://localhost:8000
+GUEST_PORT=8000
+HOST_PORT=8000
+
+# Mysql root password
+MYSQL_PASSWORD='django'
