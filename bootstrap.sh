@@ -23,6 +23,8 @@ echo $SPACER"bootstrap: installing postgres"
 apt-get install -y postgresql
 echo $SPACER"bootstrap: installing vim"
 apt-get install -y vim
+echo $SPACER"bootstrap: installing lynx"
+apt-get install -y lynx
 
 # pip and virtualenv
 echo $SPACER"bootstrap: installing distribute"
