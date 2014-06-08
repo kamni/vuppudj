@@ -1,7 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-cfg = File.read 'project.cfg'
+cfgfile = File.dirname(__FILE__) + '/project.cfg'
+cfg = File.read cfgfile
 eval cfg
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
