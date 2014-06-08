@@ -6,7 +6,7 @@ source /vagrant/project.cfg
 
 # adding phusion passenger repository
 echo $SPACER"bootstrap: running apt-get update"
-apt-get update
+apt-get update --fix-missing
 
 # development essentials
 echo $SPACER"bootstrap: installing build-essential"
