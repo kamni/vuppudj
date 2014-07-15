@@ -43,4 +43,16 @@ apt-get install -y mercurial
 echo $SPACER"bootstrap: installing git"
 apt-get install -y git
 
+# installing compass
+echo $SPACER"bootstrap: installing ruby"
+apt-get install -y ruby-full rubygems
+echo $SPACER"bootstrap: installing compass"
+gem install compass sass
+
+# niceties
+echo $SPACER"bootstrap: setting up vagrant home"
+ln -s /vagrant/django /home/vagrant/django
+mkdir /home/venv
+chown -R vagrant:vagrant /home/venv
+
 echo $SPACER"bootstrap: setup complete"
