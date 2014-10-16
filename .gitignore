@@ -6,4 +6,4 @@ django/*
 .vagrant/*
 .project
 .pydevproject
-project.cfg
+*.cfg

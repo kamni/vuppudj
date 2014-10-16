@@ -39,14 +39,10 @@ of this project (or clone it from your repository):
 
     cp -r /path-to-myproj/myprojname /path-to-vuppudj/myprojname
 
-Create a project.cfg file in root of vuppudj:
+Create a project.cfg file in the root of vuppudj:
 
     cd /path-to-vuppudj
     cp project.cfg.example project.cfg
-
-Edit the `PROJECT` variable to match the project you copied into `django`:
-
-    PROJECT='myprojname'  # change to your actual project folder name
 
 Set the absolute path on the VM to the folder where your passenger_wsgi.py file
 will be located.  Unless you have other configuration needs, this should be
@@ -54,13 +50,18 @@ something like:
 
     WSGI_PATH='/vagrant/django/myprojname'
 
-You may also want to edit the `HOST_PORT` variable if you are running multiple
-vagrant instances, but the default setting of 3000 should work without
-modification if you are only running one instance.
+Create a ports.cfg file in the root of vuppudj:
 
-Start Vagrant:
+    cp ports.cfg.example ports.cfg
+
+Modify the PORTS variable to include a list of any ports that you would like 
+mapped between Vagrant (the guest) and your local machine (the host).  For 
+example, if you wanted to see Apache's port 80 on the Vagrant box show up when 
+you visit http://localhost:8080/ on your computer, your config would look like:
+
+    PORTS = [[80, 8080]]
+
+Finally, start Vagrant:
 
     vagrant up
 
-You can verify that your instance is running by visiting [http://localhost:3000]
-(or whatever port you specified in `project.cfg`).
